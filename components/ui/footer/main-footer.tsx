@@ -22,7 +22,7 @@ const Footer = () => {
     <Box
       position="relative"
       py={20}
-      bgImage="url('/slider/slide1.jpg')"
+      bgImage="url('/slider/Slide1.jpg')"
       bgSize="cover"
       backgroundPosition="center"
       bgRepeat="no-repeat"

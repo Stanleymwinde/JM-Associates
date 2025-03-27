@@ -16,15 +16,9 @@ const About = () => {
         gap="6"
       >
         <GridItem colSpan={2}>
-          <Box
-            bg={"red"}
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="md"
-            width={""}
-          >
+          <Box borderRadius="md" overflow="hidden" boxShadow="md" width={""}>
             <Image
-              src="/home/about.jpeg"
+              src="/Home/about.jpeg"
               alt="About"
               width={500}
               height={500}

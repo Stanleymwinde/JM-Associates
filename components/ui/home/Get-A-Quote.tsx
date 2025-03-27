@@ -13,7 +13,7 @@ import {
 export default function GetAQuote() {
   return (
     <Box
-      bgImage="url('/slider/slide1.jpg')"
+      bgImage="url('/slider/Slide1.jpg')"
       bgSize="cover"
       backgroundPosition="center"
       bgRepeat="no-repeat"
