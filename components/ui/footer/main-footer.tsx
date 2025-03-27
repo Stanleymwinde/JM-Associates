@@ -1,108 +1,135 @@
-import { MarginX } from "@/utils/constants";
+"use client";
 import {
   Box,
-  Input,
-  Button,
-  Select,
+  Stack,
   VStack,
   Text,
   Link,
+  Flex,
   HStack,
   Icon,
   Image,
-  Stack,
-  Flex,
 } from "@chakra-ui/react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaXTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <Box bg={"black"} color="white" py={10}>
-      <Box marginX={MarginX}>
-        <Stack direction={["column", "row"]} gap={4} justify="space-between">
-          {/* first column Logo and small writeup */}
-          <Box w={["100%", "25%"]}>
-            <Box my={2} borderRadius="md" w={40} h={20}>
-              <Image src="/Logo.png" alt="JM Associates" objectFit={"cover"} />
-            </Box>
-            <Text fontSize="md" fontWeight="bold">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum
-              deserunt veniam dolorum voluptate dolore nesciunt laborum sed
-              ullam laudantium odio. Aliquam animi temporibus pariatur harum.
-              Eligendi dolor ea placeat voluptatum?
+    <Box
+      position="relative"
+      py={20}
+      bgImage="url('/slider/slide1.jpg')"
+      bgSize="cover"
+      backgroundPosition="center"
+      bgRepeat="no-repeat"
+    >
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        opacity={0.8}
+        bg={"gray.900"}
+      />
+
+      {/* Footer Content */}
+      <Stack
+        direction={["column", "row"]}
+        gap={8}
+        justify="space-between"
+        px={10}
+        color="white"
+        position={"relative"}
+      >
+        {/* Column 1: Logo and About */}
+        <VStack align="start" w={["100%", "20%"]}>
+          <Image
+            src="/Logo.png"
+            alt="JM Associates"
+            w={40}
+            h={20}
+            objectFit="cover"
+          />
+          <Text fontSize="sm">
+            We offer professional services in Audit, Tax, Consulting, and
+            Financial Advisory across Africa.
+          </Text>
+        </VStack>
+
+        {/* Column 2: Quick Links */}
+        <VStack align="start" w={["100%", "15%"]}>
+          <Text fontSize="lg" fontWeight="bold" color="red.500">
+            Quick Links
+          </Text>
+          <Flex direction="column" gap={2}>
+            <Link href="/about-us">
+              <Text color="white">About Us</Text>
+            </Link>
+            <Link href="#">
+              <Text color="white">Services</Text>
+            </Link>
+            <Link href="#">
+              <Text color="white">Contact Us</Text>
+            </Link>
+          </Flex>
+        </VStack>
+
+        {/* Column 3: Contacts */}
+        <VStack align="start" w={["100%", "20%"]}>
+          <Text fontSize="lg" fontWeight="bold" color="red.500">
+            Contacts
+          </Text>
+          <Box>
+            <Text>Phone: +254 733 818 835</Text>
+            <Text>
+              Email:{" "}
+              <Link href="mailto:info@jmassociates.co.ke">
+                <Text as="span" color="white">
+                  info@jmassociates.co.ke
+                </Text>
+              </Link>
             </Text>
           </Box>
-          {/* second column quick links */}
-          <VStack align="start">
-            <Text fontSize="lg" fontWeight="bold" color={"red.500"}>
-              Quick Links
-            </Text>
+        </VStack>
 
-            <Flex direction={"column"} gap={4}>
-              <Link href="/about-us" color={"white"}>
-                About Us
-              </Link>
-              <Link href="#" color={"white"}>
-                Services
-              </Link>
-              <Link href="#" color={"white"}>
-                Contact Us
-              </Link>
-            </Flex>
-          </VStack>
-          {/* third column contacts */}
-          <VStack align="start">
-            <Text fontSize="lg" fontWeight="bold" color={"red.500"}>
-              Contacts
-            </Text>
-            <Box>
-              <Text>+254 733 818 835</Text>
-              <Text>+254 722 818 835</Text>
-            </Box>
-          </VStack>
-          {/* fourth column location */}
-          <VStack align="start">
-            <Text fontSize="lg" fontWeight="bold" color={"red.500"}>
-              LOCATION
-            </Text>
-            <Box>
-              <Text>8th Floor, West Park Towers</Text>
-              <Text>Mpesi Lane Off, Muthithi Road</Text>
-              <Text>Westlands, Nairobi.</Text>
-            </Box>
-          </VStack>
-          {/* fifth column social */}
-          <VStack align="start">
-            <Text fontSize="lg" fontWeight="bold">
-              SOCIAL
-            </Text>
+        {/* Column 4: Location */}
+        <VStack align="start" w={["100%", "20%"]}>
+          <Text fontSize="lg" fontWeight="bold" color="red.500">
+            Location
+          </Text>
+          <Box>
+            <Text>8th Floor, West Park Towers</Text>
+            <Text>Mpesi Lane Off, Muthithi Road</Text>
+            <Text>Westlands, Nairobi</Text>
+          </Box>
+        </VStack>
 
-            <HStack>
-              <Link href="#">
-                <Icon size="lg" color="blue.500">
-                  <FaFacebookF />
-                </Icon>
-              </Link>
-              <Link href="#">
-                <Icon size="lg" color="white">
-                  <FaXTwitter />
-                </Icon>
-              </Link>
-              <Link href="#">
-                <Icon size="lg" color="red.500">
-                  <FaInstagram />
-                </Icon>
-              </Link>
-              <Link href="#">
-                <Icon size="lg" color="blue.500">
-                  <FaLinkedinIn />
-                </Icon>
-              </Link>
-            </HStack>
-          </VStack>
-        </Stack>
-      </Box>
+        {/* Column 5: Social Media */}
+        <VStack align="start" w={["100%", "15%"]}>
+          <Text fontSize="lg" fontWeight="bold">
+            Social
+          </Text>
+          <HStack gap={3}>
+            <Link href="#">
+              <Icon as={FaFacebookF} boxSize={5} color="blue.500" />
+            </Link>
+            <Link href="#">
+              <Icon as={FaXTwitter} boxSize={5} color="white" />
+            </Link>
+            <Link href="#">
+              <Icon as={FaInstagram} boxSize={5} color="red.500" />
+            </Link>
+            <Link href="#">
+              <Icon as={FaLinkedinIn} boxSize={5} color="blue.500" />
+            </Link>
+          </HStack>
+        </VStack>
+      </Stack>
     </Box>
   );
 };

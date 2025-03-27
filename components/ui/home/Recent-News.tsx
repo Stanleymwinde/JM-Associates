@@ -17,21 +17,21 @@ const newsArticles = [
     title: "A digital prescription for the pharma",
     date: "May, 26 2017",
     comments: 0,
-    imageUrl: "/images/pharma.jpg", // Replace with actual image path
+    imageUrl: "/Home/10-Years.jpg",
   },
   {
     id: 2,
     title: "Retail banks wake up to digital lending",
     date: "May, 26 2017",
     comments: 0,
-    imageUrl: "/images/digital-lending.jpg", // Replace with actual image path
+    imageUrl: "/Home/Consultancy.jpg",
   },
   {
     id: 3,
     title: "Seven weeks working ‘pro bono’",
     date: "May, 26 2017",
     comments: 0,
-    imageUrl: "/images/pro-bono.jpg", // Replace with actual image path
+    imageUrl: "/Home/Leverage.png",
   },
 ];
 
@@ -66,12 +66,7 @@ const RecentNews = () => {
                 <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>
                   {article.title}
                 </Heading>
-                <Flex alignItems="center" color="blue.500" mt={2}>
-                  <Icon>
-                    <FaRegComment color="red.500" />
-                  </Icon>
-                  <Text fontSize="sm">{article.comments} Comments</Text>
-                </Flex>
+                <Flex align="center" mt={2}></Flex>
               </Box>
             </GridItem>
           ))}

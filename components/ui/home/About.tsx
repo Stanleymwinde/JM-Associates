@@ -89,7 +89,6 @@ const About = () => {
               _groupHover={{ color: "black", cursor: "pointer" }}
             >
               <Text
-                as="a"
                 fontWeight="bold"
                 color="red.500"
                 display="inline-flex"
