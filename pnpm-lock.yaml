@@ -20,6 +20,9 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      nuka-carousel:
+        specifier: ^8.2.0
+        version: 8.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -703,6 +706,12 @@ packages:
         optional: true
       sass:
         optional: true
+
+  nuka-carousel@8.2.0:
+    resolution: {integrity: sha512-Wt6rAlSKnhQyZQETfdb5HGSzNc1hcnWls2pA+WpHqi6xq+F44k+oaldFEaSTxvSuVMz2Fo8LhDFGInlYlXepeQ==}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -1779,6 +1788,11 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  nuka-carousel@8.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   parent-module@1.0.1:
     dependencies:

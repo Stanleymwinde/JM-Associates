@@ -1,6 +1,7 @@
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaX } from "react-icons/fa6";
 import { FiPhone } from "react-icons/fi";
+import { text } from "stream/consumers";
 
 export const MarginX = {
   base: "3%",
@@ -43,5 +44,36 @@ export const homectas = [
     icon: <FiPhone />,
     text: "CALL US",
     desc: "(+254) 722 123 456",
+  },
+];
+
+export const HomeLinks = [
+  {
+    link: "/",
+    text: "Home",
+  },
+  {
+    link: "/about-us",
+    text: "About Us",
+  },
+  {
+    link: "/services",
+    text: "Services",
+  },
+  {
+    link: "/sectors",
+    text: "Sectors",
+  },
+  {
+    link: "/careers",
+    text: "Careers",
+  },
+  {
+    link: "/resources",
+    text: "Resources",
+  },
+  {
+    link: "/contact-us",
+    text: "Contact Us",
   },
 ];

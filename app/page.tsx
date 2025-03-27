@@ -1,13 +1,19 @@
-import { MainNav } from "@/components/ui/navbar";
-import { Text } from "@chakra-ui/react";
+import {
+  About,
+  Carousel,
+  GetAQuote,
+  RecentNews,
+  Services,
+} from "@/components/ui/home";
 
 export default function Home() {
   return (
     <>
-      <MainNav />
-      <Text textAlign={"center"} alignContent={"center"} fontSize={"3xl"}>
-        Welcome Smwinde
-      </Text>
+      <Carousel />
+      <About />
+      <Services />
+      <GetAQuote />
+      <RecentNews />
     </>
   );
 }
