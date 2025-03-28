@@ -3,6 +3,7 @@
 import { homectas, MarginX } from "@/utils/constants";
 import { Box, Flex, Icon, Text, useBreakpointValue } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const MainNav = () => {
@@ -17,12 +18,15 @@ const MainNav = () => {
       >
         {/* Logo */}
         <Box>
-          <Image
-            src="/Logo.png"
-            alt="logo"
-            width={useBreakpointValue({ base: 100, md: 200 })}
-            height={useBreakpointValue({ base: 50, md: 100 })}
-          />
+          <Link href={"/"}>
+            {" "}
+            <Image
+              src="/Logo.png"
+              alt="logo"
+              width={useBreakpointValue({ base: 100, md: 200 })}
+              height={useBreakpointValue({ base: 50, md: 100 })}
+            />
+          </Link>
         </Box>
 
         {/* CTA Section */}

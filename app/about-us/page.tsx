@@ -1,10 +1,14 @@
+import CommonHero from "@/components/common-hero";
+import { CompanyHistory, Mission_Vission } from "@/components/ui/about";
 import { Heading } from "@chakra-ui/react";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <Heading> Welcome Smwinde</Heading>
+      <CommonHero title="About Us" image="/Home/10-Years.jpg" />
+      <CompanyHistory />
+      <Mission_Vission />
     </>
   );
 };
