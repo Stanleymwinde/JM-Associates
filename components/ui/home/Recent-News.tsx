@@ -51,6 +51,12 @@ const RecentNews = () => {
               borderRadius="lg"
               overflow="hidden"
               boxShadow="md"
+              _hover={{
+                boxShadow: "xl",
+                cursor: "pointer",
+                transform: "scale(1.05)",
+                transition: "all 0.3s",
+              }}
             >
               <Image
                 src={article.imageUrl}

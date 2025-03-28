@@ -6,7 +6,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <Box marginX={MarginX} py={16}>
+    <Box marginX={MarginX} py={10}>
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
