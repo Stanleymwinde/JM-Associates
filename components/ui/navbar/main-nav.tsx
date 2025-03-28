@@ -1,4 +1,5 @@
 "use client";
+
 import { homectas, MarginX } from "@/utils/constants";
 import { Box, Flex, Icon, Text, useBreakpointValue } from "@chakra-ui/react";
 import Image from "next/image";
@@ -6,60 +7,61 @@ import React from "react";
 
 const MainNav = () => {
   return (
-    <>
-      <Box>
+    <Box py={4}>
+      <Flex
+        flexWrap="wrap"
+        justify="space-between"
+        align="center"
+        mx={MarginX}
+        gap={{ base: 4, md: 6 }}
+      >
+        {/* Logo */}
+        <Box>
+          <Image
+            src="/Logo.png"
+            alt="logo"
+            width={useBreakpointValue({ base: 100, md: 200 })}
+            height={useBreakpointValue({ base: 50, md: 100 })}
+          />
+        </Box>
+
+        {/* CTA Section */}
         <Flex
-          justify={"space-between"}
-          align={"center"}
-          marginX={MarginX}
-          py={5}
+          flexWrap="wrap"
+          gap={{ base: 3, md: 5 }}
+          justify={{ base: "center", md: "flex-end" }}
         >
-          <Box>
-            <Image
-              src={"/Logo.png"}
-              alt={"logo"}
-              width={useBreakpointValue({ base: "100", md: "200", lg: "200" })}
-              height={200}
-            />
-          </Box>
-          <Flex gap={5}>
-            {homectas.map((cta, index) => (
+          {homectas.map((cta, index) => (
+            <Flex
+              key={index}
+              align="center"
+              gap={3}
+              flexDirection={{ base: "column", md: "row" }}
+              textAlign={{ base: "center", md: "left" }}
+            >
+              {/* Icon Container */}
               <Box
-                key={index}
-                display={{ base: "column", md: "flex", lg: "flex" }}
-                alignContent={"center"}
-                justifyContent={"center"}
-                gap={5}
+                border={{ base: "none", md: "1px solid red" }}
+                p={3}
+                borderRadius="full"
               >
-                <Box
-                  border={{ base: "none", md: "1px solid red" }}
-                  p={5}
-                  borderRadius={"100%"}
-                >
-                  <Icon
-                    size={{ base: "md", md: "md", lg: "lg" }}
-                    alignContent={"center"}
-                    alignItems={"center"}
-                    color="red"
-                  >
-                    {cta.icon}
-                  </Icon>
-                </Box>
-                <Flex
-                  direction={"column"}
-                  align={"start"}
-                  justify={{ base: "center", md: "start", lg: "center" }}
-                  textAlign={{ base: "center", md: "start", lg: "center" }}
-                >
-                  <Text>{cta.text}</Text>
-                  <Text>{cta.desc}</Text>
-                </Flex>{" "}
+                <Icon color="red" boxSize={{ base: 5, md: 6 }}>
+                  {cta.icon}
+                </Icon>
               </Box>
-            ))}
-          </Flex>
+
+              {/* Text Section */}
+              <Box>
+                <Text fontSize={{ base: "sm", md: "md" }} fontWeight="bold">
+                  {cta.text}
+                </Text>
+                <Text fontSize={{ base: "xs", md: "sm" }}>{cta.desc}</Text>
+              </Box>
+            </Flex>
+          ))}
         </Flex>
-      </Box>
-    </>
+      </Flex>
+    </Box>
   );
 };
 
