@@ -4,7 +4,7 @@ import "./globals.css";
 import { Provider } from "@/components/ui/provider";
 import { BottomNav, MainNav, TopNav } from "@/components/ui/navbar";
 import { BottomFooter, MainFooter } from "@/components/ui/footer";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
