@@ -14,6 +14,7 @@ const CommonHero: React.FC<CommonHeroProps> = ({ title, image }) => {
       h={{ base: "300px", md: "300px", lg: "400px" }} // Responsive height
       bgImage={`url(${image})`}
       bgSize="cover"
+      bgRepeat={"no-repeat"}
       backgroundPosition="center"
       display="flex"
       alignItems="center"
