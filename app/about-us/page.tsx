@@ -1,6 +1,5 @@
 import CommonHero from "@/components/common-hero";
 import { CompanyHistory, Mission_Vission } from "@/components/ui/about";
-import { Heading } from "@chakra-ui/react";
 import React from "react";
 
 const page = () => {
