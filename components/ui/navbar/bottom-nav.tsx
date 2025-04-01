@@ -17,21 +17,25 @@ const BottomNav = () => {
           alignItems="center"
           flexDirection={{ base: "row", md: "row" }}
         >
-          {/* Desktop Navigation - Visible on medium+ screens */}
           <Flex
             display={{ base: "none", md: "flex" }}
-            gap={7}
             alignItems="center"
+            width="100%"
+            justifyContent="space-between"
           >
-            {HomeLinks.map((home, index) => (
-              <Box key={index}>
-                <Link href={home.link}>
-                  <Text fontSize="2xl" color="white" fontFamily="initial">
-                    {home.text}
-                  </Text>
-                </Link>
-              </Box>
-            ))}
+            {/* Navigation Links on the Left */}
+            <Flex gap={7} alignItems="center">
+              {HomeLinks.map((home, index) => (
+                <Box key={index}>
+                  <Link href={home.link}>
+                    <Text fontSize="2xl" color="white" fontFamily="initial">
+                      {home.text}
+                    </Text>
+                  </Link>
+                </Box>
+              ))}
+            </Flex>
+
             <Button bg="white" color="#aa1f30">
               Get a Quote
             </Button>

@@ -61,16 +61,8 @@ export const HomeLinks = [
     text: "Services",
   },
   {
-    link: "/sectors",
-    text: "Sectors",
-  },
-  {
     link: "/careers",
     text: "Careers",
-  },
-  {
-    link: "/resources",
-    text: "Resources",
   },
   {
     link: "/contact-us",
