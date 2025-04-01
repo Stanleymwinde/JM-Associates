@@ -7,7 +7,7 @@ const page = () => {
     <>
       <CommonHero title="Careers" image="/Home/career.jpg" />
       <Box textAlign="center" py={10} px={6}>
-        <Heading as="h2" size="xl" mb={4} color="teal.500">
+        <Heading as="h2" size="3xl" mb={4} color="teal.500">
           No Vacant Positions
         </Heading>
         <Text fontSize="lg" color="gray.600">
