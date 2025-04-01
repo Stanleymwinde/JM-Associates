@@ -1,6 +1,7 @@
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaX } from "react-icons/fa6";
 import { FiPhone } from "react-icons/fi";
+import { TbMailBitcoin } from "react-icons/tb";
 import { text } from "stream/consumers";
 
 export const MarginX = {
@@ -67,6 +68,17 @@ export const HomeLinks = [
   {
     link: "/contact-us",
     text: "Contact Us",
+  },
+];
+
+export const contactsData = [
+  {
+    label: "info@jmassociates.co.ke",
+    title: "Email Address",
+    icon: <TbMailBitcoin />,
+    link: `mailto:info@jmassociates.co.ke`,
+    bg: "red.500",
+    color: "black",
   },
 ];
 
