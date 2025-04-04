@@ -8,19 +8,21 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import ContactForm from "./contact-form";
+
 import Link from "next/link";
+import ContactForm from "./contact-form";
 
 const ContactDetails = () => {
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2 }}
-      gap={8}
+      gap="2rem"
+      paddingX={{ base: "1rem", md: "2rem" }}
       my="4rem"
       marginX={MarginX}
       alignItems="center"
     >
-      <Stack gap="1rem">
+      <Stack>
         <Heading fontSize="xl">Send Direct Message</Heading>
         {contactsData.map((d, i) => (
           <Flex

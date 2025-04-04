@@ -80,6 +80,22 @@ export const contactsData = [
     bg: "red.500",
     color: "black",
   },
+  {
+    label: "+254 722 123 456",
+    title: "Phone Number",
+    icon: <FiPhone />,
+    link: `tel:+254722123456`,
+    bg: "red.500",
+    color: "black",
+  },
+  {
+    label: "Westpark Towers, 4th Floor, Westlands, Nairobi",
+    title: "Location",
+    icon: <CiLocationOn />,
+    link: `https://goo.gl/maps/6K3xk9vY7G1gJ5nV6`,
+    bg: "red.500",
+    color: "black",
+  },
 ];
 
 export const ServiceTabs = [
