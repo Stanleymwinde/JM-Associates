@@ -32,6 +32,12 @@ const newsArticles = [
     comments: 0,
     imageUrl: "/Home/Leverage.png",
   },
+  {
+    id:4,
+    title:"Caro",
+    date:"today",
+    imageUrl:"/Home/Leverage.png"
+  }
 ];
 
 const RecentNews = () => {
