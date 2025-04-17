@@ -1,10 +1,5 @@
-import {
-  About,
-  Carousel,
-  GetAQuote,
-  RecentNews,
-  Services,
-} from "@/components/ui/home";
+import { About, Carousel, GetAQuote, Services } from "@/components/ui/home";
+import HomeNews from "@/components/ui/news/page";
 
 export default function Home() {
   return (
@@ -13,7 +8,7 @@ export default function Home() {
       <About />
       <Services />
       <GetAQuote />
-      <RecentNews />
+      <HomeNews />
     </>
   );
 }
