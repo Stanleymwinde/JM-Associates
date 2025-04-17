@@ -1,14 +1,8 @@
 import { MarginX } from "@/utils/constants";
-import {
-  Box,
-  Image,
-  Text,
-  Grid,
-  GridItem,
-  Heading,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Image, Text, Grid, GridItem, Heading, Flex } from "@chakra-ui/react";
 import Link from "next/link"; // Import Link from Next.js
+import { GetStaticProps } from "next"; // Import GetStaticProps to fetch data
+
 
 const newsArticles = [
   {
@@ -17,6 +11,7 @@ const newsArticles = [
     date: "May, 26 2017",
     comments: 0,
     imageUrl: "/Home/10-Years.jpg",
+    excerpt: "A digital prescription for t", // Add an excerpt here for this article
   },
   {
     id: 2,
@@ -24,6 +19,7 @@ const newsArticles = [
     date: "May, 26 2017",
     comments: 0,
     imageUrl: "/Home/Consultancy.jpg",
+    excerpt: "Retail banks are embracing digital lending to enhance customer experience.", // Add an excerpt here
   },
   {
     id: 3,
@@ -31,13 +27,9 @@ const newsArticles = [
     date: "January, 22 2016",
     comments: 0,
     imageUrl: "/Home/Leverage.png",
+    excerpt: "A team spent seven weeks working pro bono to help a charity.", // Add an excerpt here
   },
-  {
-    id:4,
-    title:"Caro",
-    date:"today",
-    imageUrl:"/Home/Leverage.png"
-  }
+  
 ];
 
 const RecentNews = () => {
@@ -70,26 +62,17 @@ const RecentNews = () => {
                   transition: "all 0.3s",
                 }}
               >
-                <Link href={`/news/${slug}`} passHref>
-                  <Box as="a">
-                    <Image
-                      src={article.imageUrl}
-                      alt={article.title}
-                      objectFit="cover"
-                      width="100%"
-                      height="200px"
-                    />
-                    <Box p={4}>
-                      <Text fontSize="sm" color="gray.500">
-                        {article.date}
-                      </Text>
-                      <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>
-                        {article.title}
-                      </Heading>
-                      <Flex align="center" mt={2}></Flex>
-                    </Box>
-                  </Box>
-                </Link>
+
+<Link href={`/news/${slug}`} passHref>
+  <Box as="a">
+    <Image src={article.imageUrl} alt={article.title} objectFit="cover" width="100%" height="200px" />
+    <Box p={4}>
+      <Text fontSize="sm" color="gray.500">{article.date}</Text>
+      <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>{article.title}</Heading>
+      <Text mt={2} truncate>{article.excerpt}</Text>
+    </Box>
+  </Box>
+</Link>
               </GridItem>
             );
           })}
@@ -100,7 +83,3 @@ const RecentNews = () => {
 };
 
 export default RecentNews;
-
-
-
-
