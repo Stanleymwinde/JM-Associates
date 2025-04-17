@@ -7,9 +7,8 @@ import {
   GridItem,
   Heading,
   Flex,
-  Icon,
 } from "@chakra-ui/react";
-import { FaRegComment } from "react-icons/fa";
+import Link from "next/link"; // Import Link from Next.js
 
 const newsArticles = [
   {
@@ -29,7 +28,7 @@ const newsArticles = [
   {
     id: 3,
     title: "Seven weeks working ‘pro bono’",
-    date: "May, 26 2017",
+    date: "January, 22 2016",
     comments: 0,
     imageUrl: "/Home/Leverage.png",
   },
@@ -44,38 +43,50 @@ const RecentNews = () => {
       <Box width="50px" height="2px" bg="red.500" mx="auto" mb={6}></Box>
       <Box marginX={MarginX}>
         <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
-          {newsArticles.map((article) => (
-            <GridItem
-              key={article.id}
-              borderWidth="1px"
-              borderRadius="lg"
-              overflow="hidden"
-              boxShadow="md"
-              _hover={{
-                boxShadow: "xl",
-                cursor: "pointer",
-                transform: "scale(1.05)",
-                transition: "all 0.3s",
-              }}
-            >
-              <Image
-                src={article.imageUrl}
-                alt={article.title}
-                objectFit="cover"
-                width="100%"
-                height="200px"
-              />
-              <Box p={4}>
-                <Text fontSize="sm" color="gray.500">
-                  {article.date}
-                </Text>
-                <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>
-                  {article.title}
-                </Heading>
-                <Flex align="center" mt={2}></Flex>
-              </Box>
-            </GridItem>
-          ))}
+          {newsArticles.map((article) => {
+            // Format the slug properly by replacing spaces and removing special characters
+            const slug = article.title
+              .toLowerCase()
+              .replace(/\s+/g, "-")  // Replace spaces with dashes
+              .replace(/[^\w\-]/g, ""); // Remove any non-alphanumeric characters
+
+            return (
+              <GridItem
+                key={article.id}
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                boxShadow="md"
+                _hover={{
+                  boxShadow: "xl",
+                  cursor: "pointer",
+                  transform: "scale(1.05)",
+                  transition: "all 0.3s",
+                }}
+              >
+                <Link href={`/news/${slug}`} passHref>
+                  <Box as="a">
+                    <Image
+                      src={article.imageUrl}
+                      alt={article.title}
+                      objectFit="cover"
+                      width="100%"
+                      height="200px"
+                    />
+                    <Box p={4}>
+                      <Text fontSize="sm" color="gray.500">
+                        {article.date}
+                      </Text>
+                      <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>
+                        {article.title}
+                      </Heading>
+                      <Flex align="center" mt={2}></Flex>
+                    </Box>
+                  </Box>
+                </Link>
+              </GridItem>
+            );
+          })}
         </Grid>
       </Box>
     </Box>
@@ -83,3 +94,7 @@ const RecentNews = () => {
 };
 
 export default RecentNews;
+
+
+
+
