@@ -3,6 +3,7 @@
 import { ContactFormData, ContactFormSchema } from "@/schema/ContactSchema";
 import { useState } from "react";
 import { toaster } from "@/components/ui/toaster";
+import axios from "axios";
 import {
   Button,
   Field,
@@ -28,31 +29,25 @@ const ContactForm = () => {
   const handleFormSubmit = async (data: ContactFormData) => {
     setisLoading(true);
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
+      const response = await axios.post("/api/contact", data, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
       });
-
-      if (response.ok) {
-        reset();
+      console.log("Response:", response.data);
+      if (response.data.status === "success") {
         toaster.create({
-          title: "Message sent.",
+          title: "Success",
           description: "Your message has been sent successfully.",
           type: "success",
-          duration: 5000,
         });
-      } else {
-        throw new Error("Failed to send message.");
+        reset();
       }
     } catch (error) {
-      toaster.error({
-        title: "Error.",
-        description: "An error occurred while sending your message.",
+      toaster.create({
+        title: "Error",
+        description: "There was an error sending your message.",
         type: "error",
-        duration: 5000,
       });
     } finally {
       setisLoading(false);
@@ -75,13 +70,13 @@ const ContactForm = () => {
         marginY={"2rem"}
         marginBottom={{ base: "2rem", md: "0" }}
       >
+        {" "}
         <Stack>
           <Fieldset.Legend>Leave a message</Fieldset.Legend>
           <Fieldset.HelperText>
             Please fill in the form below to send us a message.
           </Fieldset.HelperText>
         </Stack>
-
         <Fieldset.Content>
           <Field.Root invalid={!!errors.Fullname}>
             <Field.Label>Full Name</Field.Label>
@@ -130,7 +125,6 @@ const ContactForm = () => {
             )}
           </Field.Root>
         </Fieldset.Content>
-
         <Button
           type="submit"
           alignSelf="flex-start"

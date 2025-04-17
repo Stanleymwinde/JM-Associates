@@ -7,6 +7,7 @@ import { BottomFooter, MainFooter } from "@/components/ui/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Whatsapp from "@/components/Whatsapp";
+import NextTopLoader from "nextjs-toploader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <NextTopLoader color="#aa1f30" showSpinner />
         <Provider>
           <TopNav />
           <MainNav />
