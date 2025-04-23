@@ -96,6 +96,7 @@ export default function GetAQuote() {
               placeholder="Name"
               bg="whiteAlpha.800"
               color="black"
+              required
               _placeholder={{ color: "gray.600" }}
               {...register("Fullname")}
             />
@@ -103,6 +104,7 @@ export default function GetAQuote() {
               placeholder="Company"
               bg="whiteAlpha.800"
               color="black"
+              required
               _placeholder={{ color: "gray.600" }}
               {...register("Company")}
             />
@@ -110,6 +112,7 @@ export default function GetAQuote() {
               placeholder="Email"
               bg="whiteAlpha.800"
               color="black"
+              required
               _placeholder={{ color: "gray.600" }}
               type="email"
               {...register("Email")}
@@ -118,6 +121,7 @@ export default function GetAQuote() {
               placeholder="Phone"
               bg="whiteAlpha.800"
               color="black"
+              required
               _placeholder={{ color: "gray.600" }}
               type="tel"
               {...register("Phone")}
@@ -126,6 +130,7 @@ export default function GetAQuote() {
               placeholder="Message"
               bg="whiteAlpha.800"
               color="black"
+              required
               _placeholder={{ color: "gray.600" }}
               height={{ base: "100px", md: "150px" }}
               gridColumn={{ base: "span 1", md: "span 2" }}

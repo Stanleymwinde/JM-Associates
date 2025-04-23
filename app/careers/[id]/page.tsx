@@ -19,8 +19,6 @@ const JobDetailsPage = () => {
   // Find the job data based on the jobId
   jobData = CareersData.find((job) => job.id === Number(jd));
 
-  console.log("jobData", jobData);
-
   return (
     <Container maxW="3xl" py={10}>
       <VStack gap={8} align="start">

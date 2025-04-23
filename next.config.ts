@@ -7,6 +7,21 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+  images: {
+    dangerouslyAllowSVG: true,
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "cms.jmassociates.co.ke",
+    },
+    {
+      protocol: "https",
+      hostname: "jmassociates.co.ke",
+    }],
+  },
+  
+
+ 
 };
 
 export default nextConfig;
