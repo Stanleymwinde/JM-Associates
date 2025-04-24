@@ -1,10 +1,21 @@
+"use client";
 import { MarginX } from "@/utils/constants";
+import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
 import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const About = () => {
+  const { sectionData, error, loading } = useDefaultSectionData("homeabout");
+
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
+  if (error) {
+    return <Text>Error: {error}</Text>;
+  }
+
   return (
     <Box marginX={MarginX} py={10}>
       <Grid
@@ -18,7 +29,11 @@ const About = () => {
         <GridItem colSpan={2}>
           <Box borderRadius="md" overflow="hidden" boxShadow="md" width={""}>
             <Image
-              src="/Home/about.jpeg"
+              src={
+                sectionData?.image
+                  ? `https://cms.jmassociates.co.ke/storage/uploads${sectionData.image.path}`
+                  : "/about.jpg"
+              }
               alt="About"
               width={500}
               height={500}
@@ -37,7 +52,7 @@ const About = () => {
         >
           <Box textAlign="start" width="100%">
             <Heading size="5xl" fontFamily={"initial"}>
-              About JM Associates
+              {sectionData?.title}
             </Heading>
 
             <Box
@@ -67,15 +82,10 @@ const About = () => {
               fontSize={["md", "xl"]}
               maxW="100%"
               textAlign="justify"
-            >
-              JM Associates is a leading provider of professional services in
-              the areas of accounting, audit, tax, business advisory, and
-              consulting services. We are a full-service accounting firm that
-              provides a wide range of services to clients in various
-              industries. Our team of experienced professionals is committed to
-              providing high-quality services to our clients and helping them
-              achieve their financial goals.
-            </Text>
+              dangerouslySetInnerHTML={{
+                __html: sectionData?.description || "",
+              }}
+            />
           </Box>
           <Link href={"/about"} passHref>
             <Box

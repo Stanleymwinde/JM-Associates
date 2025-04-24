@@ -5,10 +5,12 @@ import { Box, Button, Flex, Text, IconButton } from "@chakra-ui/react";
 import { Drawer } from "@chakra-ui/react";
 import { Portal, CloseButton } from "@chakra-ui/react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const BottomNav = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <Box bg="#aa1f30" p={4} w="100%" textAlign="center">
       <Box mx={MarginX}>
@@ -42,7 +44,12 @@ const BottomNav = () => {
           </Flex>
 
           {/* Hamburger Menu - Only Visible on Mobile */}
-          <Drawer.Root>
+          <Drawer.Root
+            closeOnEscape={true}
+            closeOnInteractOutside={true}
+            open={open}
+            onOpenChange={(e) => setOpen(e.open)}
+          >
             <Drawer.Trigger asChild>
               <IconButton
                 display={{ base: "flex", md: "none" }}
@@ -50,6 +57,7 @@ const BottomNav = () => {
                 color="white"
                 bg="transparent"
                 _hover={{ bg: "whiteAlpha.300" }}
+                onClick={() => setOpen(true)}
               >
                 <RxHamburgerMenu />
               </IconButton>
@@ -66,7 +74,7 @@ const BottomNav = () => {
                   <Drawer.Body>
                     <Flex flexDirection="column" gap={4} alignItems="center">
                       {HomeLinks.map((home, index) => (
-                        <Box key={index}>
+                        <Box key={index} onClick={() => setOpen(false)}>
                           <Link href={home.link}>
                             <Text
                               fontSize="xl"
@@ -78,6 +86,7 @@ const BottomNav = () => {
                           </Link>
                         </Box>
                       ))}
+
                       <Button bg="white" color="#aa1f30">
                         Get a Quote
                       </Button>

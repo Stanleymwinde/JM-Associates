@@ -102,6 +102,16 @@ export const contactsData = [
   },
 ];
 
+export const CareersData = [
+  { id: 1, title: "Software Engineer", location: "Remote" },
+  {
+    id: 2,
+    title: "Marketing Specialist",
+    location: "Nairobi, Kenya",
+  },
+  { id: 3, title: "HR Manager", location: "New York, USA" },
+];
+
 export const ServiceTabs = [
   {
     id: 1,
