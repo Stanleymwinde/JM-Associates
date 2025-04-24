@@ -17,9 +17,6 @@ const About = () => {
     return <Text>Error: {error}</Text>;
   }
 
-  // Debugging: Check the structure of sectionData
-  console.log(sectionData);
-
   return (
     <Box marginX={MarginX} py={10}>
       <Grid
