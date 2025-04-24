@@ -1,78 +1,48 @@
-import { MarginX } from "@/utils/constants";
-import { Box, Container, Heading, Image, Text, Flex } from "@chakra-ui/react";
+// components/CompanyHistory.tsx
+
+import { Box, Container, Heading, Text } from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
+import { useCompanyHistoryData } from "@/utils/hooks/UseCompanyHistoryData"; // Import the custom hook
 
 const CompanyHistory = () => {
+  // No argument is passed here
+  const { companyHistory, loading, error } = useCompanyHistoryData(); // Just call the hook without any arguments
+
+  if (loading) {
+    return <Text>Loading...</Text>; // Show loading message while fetching
+  }
+
+  if (error) {
+    return <Text>Error: {error}</Text>; // Show error if something goes wrong
+  }
+
+  // If we have company history data, display it
   return (
-    <Box py={10} marginX={MarginX}>
-      <Box marginX={MarginX}>
-        <Image
-          src="/Home/about.jpeg" // Change this to your actual image path
-          alt="Company Building"
-          w="100%"
-          h={{ base: "250px", md: "400px", lg: "500px" }}
-          objectFit="cover"
-        />
-      </Box>
+    <Box py={10}>
+      <Container maxW="container.lg" py={10}>
+        <Heading size="2xl">{companyHistory?.title}</Heading> {/* Display the title */}
+        <Text py={5} fontSize="lg" dangerouslySetInnerHTML={{ __html: companyHistory?.description || "" }} /> {/* Display description */}
 
-      {/* History Section */}
-      <Container maxW="container.lg" py={10} textAlign="center">
-        <Box
-          divideY={"2px"}
-          divideColor={"red.500"}
-          borderBottomWidth={"3px"}
-          mx={"auto"}
-        >
-          <Heading as="h2" fontSize="2xl" fontWeight="bold" mb={3}>
-            COMPANY HISTORY{" "}
-            {/* <Divider
-            w="50px"
-            mx="auto"
-            borderBottomWidth="3px"
-            borderColor="blue.600"
-          /> */}
-          </Heading>
-          <Text color="gray.600" fontSize={{ base: "sm", md: "md" }} mb={8}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-            amet odio vel dui elementum aliquam non eu metus. Nunc urna diam,
-            ornare vitae risus et, vulputate porta velit. Quisque eros felis,
-            varius a nulla sed, pretium bibendum ipsum. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-            Sed finibus, leo nec pulvinar efficitur, justo sem consectetur mi,
-            in maximus libero enim sit amet neque. Nunc id finibus risus,
-            molestie iaculis elit. Suspendisse est massa, auctor vel dapibus
-            sed, aliquet nec elit. Proin egestas nec enim nec feugiat. Mauris eu
-            libero fringilla, viverra ante at, ultrices nulla. Aliquam in auctor
-            quam. Etiam bibendum congue efficitur phasellus auctor vel dapibus.
-          </Text>
+        {/* Display image */}
+        <Box borderRadius="md" overflow="hidden" boxShadow="md" mb={6}>
+          <Image
+            src={`https://cms.jmassociates.co.ke/storage/uploads${companyHistory?.image.path}`}
+            alt="Company History"
+            width={1200}
+            height={500}
+            objectFit="cover"
+          />
         </Box>
-
-        {/* Timeline */}
-        <Flex
-          direction={{ base: "column", md: "row" }}
-          justify="space-around"
-          align="center"
-        >
-          {[
-            { year: "1988", event: "JM Associates was founded" },
-            { year: "2000", event: "Listed on the Stock Market" },
-            { year: "2010", event: "New CEO JM-Associates" },
-            { year: "Today", event: "Reached 1K +  Clients" },
-          ].map((item, index) => (
-            <Box key={index} textAlign="center">
-              <Heading fontSize="lg" fontWeight="bold">
-                {item.year}
-              </Heading>
-              <Text color="gray.500">{item.event}</Text>
-              {index !== 3 && (
-                <Box w="50px" h="4px" bg="gray.300" mx="auto" my={4} />
-              )}
-            </Box>
-          ))}
-        </Flex>
       </Container>
     </Box>
   );
 };
 
 export default CompanyHistory;
+
+
+
+
+
+
