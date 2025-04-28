@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const QuoteFormSchema = z.object({
-  Fullname: z.string().min(1, "Full name is required"),
+  Fullname: z.string().min(3, "Full name is required"),
   Email: z.string().email("Invalid email address").min(1, "Email is required"),
   Company: z.string().min(1, "Company name is required"),
   Phone: z.string().min(1, "Phone number is required"),
