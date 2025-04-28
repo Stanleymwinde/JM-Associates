@@ -1,13 +1,29 @@
+"use client";
 import { MarginX } from "@/utils/constants";
+import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
 import { Box, Container, Heading, Image, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 
 const CompanyHistory = () => {
+
+  const {sectionData, error, loading} = useDefaultSectionData("aboutus")
+
+  if (loading){
+    return <Text>Loading ...</Text>
+  }
+  if (error) {
+    return <Text> error: {error}</Text>
+  }
+
   return (
     <Box py={10} marginX={MarginX}>
       <Box marginX={MarginX}>
         <Image
-          src="/Home/about.jpeg" // Change this to your actual image path
+           src={
+            sectionData?.image?.path
+              ? `https://cms.jmassociates.co.ke/storage/uploads${sectionData.image.path}`
+              : "/about.jpg"
+          }
           alt="Company Building"
           w="100%"
           h={{ base: "250px", md: "400px", lg: "500px" }}
@@ -24,7 +40,7 @@ const CompanyHistory = () => {
           mx={"auto"}
         >
           <Heading as="h2" fontSize="2xl" fontWeight="bold" mb={3}>
-            COMPANY HISTORY{" "}
+          {sectionData!.title}
             {/* <Divider
             w="50px"
             mx="auto"
@@ -33,17 +49,7 @@ const CompanyHistory = () => {
           /> */}
           </Heading>
           <Text color="gray.600" fontSize={{ base: "sm", md: "md" }} mb={8}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-            amet odio vel dui elementum aliquam non eu metus. Nunc urna diam,
-            ornare vitae risus et, vulputate porta velit. Quisque eros felis,
-            varius a nulla sed, pretium bibendum ipsum. Vestibulum ante ipsum
-            primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-            Sed finibus, leo nec pulvinar efficitur, justo sem consectetur mi,
-            in maximus libero enim sit amet neque. Nunc id finibus risus,
-            molestie iaculis elit. Suspendisse est massa, auctor vel dapibus
-            sed, aliquet nec elit. Proin egestas nec enim nec feugiat. Mauris eu
-            libero fringilla, viverra ante at, ultrices nulla. Aliquam in auctor
-            quam. Etiam bibendum congue efficitur phasellus auctor vel dapibus.
+            {sectionData!.description}
           </Text>
         </Box>
 

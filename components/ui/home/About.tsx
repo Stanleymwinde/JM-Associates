@@ -13,6 +13,7 @@ const About = () => {
   if (loading) {
     return <Loading />;
   }
+
   if (error) {
     return <Text>Error: {error}</Text>;
   }
@@ -31,7 +32,7 @@ const About = () => {
           <Box borderRadius="md" overflow="hidden" boxShadow="md" width={""}>
             <Image
               src={
-                sectionData?.image
+                sectionData?.image?.path
                   ? `https://cms.jmassociates.co.ke/storage/uploads${sectionData.image.path}`
                   : "/about.jpg"
               }
@@ -53,7 +54,7 @@ const About = () => {
         >
           <Box textAlign="start" width="100%">
             <Heading size="5xl" fontFamily={"initial"}>
-              {sectionData?.title}
+              {sectionData?.title || "Default Title"} {/* Safe access */}
             </Heading>
 
             <Box
@@ -66,7 +67,8 @@ const About = () => {
               <Box></Box>
               <Box></Box>
             </Box>
-            {/* second divider */}
+
+            {/* Second Divider */}
             <Box
               pl={5}
               width="12%"
@@ -77,6 +79,7 @@ const About = () => {
               <Box></Box>
               <Box></Box>
             </Box>
+
             <Text
               py={10}
               fontFamily={"initial"}
@@ -84,10 +87,11 @@ const About = () => {
               maxW="100%"
               textAlign="justify"
               dangerouslySetInnerHTML={{
-                __html: sectionData?.description || "",
+                __html: sectionData?.description || "No description available.",
               }}
             />
           </Box>
+
           <Link href={"/about"} passHref>
             <Box
               width="100%"

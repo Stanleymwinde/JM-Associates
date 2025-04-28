@@ -62,6 +62,10 @@ export const HomeLinks = [
     text: "Services",
   },
   {
+    link: "/blogs",
+    text: "blogs",
+  },
+  {
     link: "/careers",
     text: "Careers",
   },
@@ -294,5 +298,32 @@ export const ServiceTabs = [
     name: "Enterprises Risk Management",
     content: "Find answers to common questions...",
     image: "/Home/10-Years.jpg",
+  },
+];
+
+export const newsArticles = [
+  {
+    slug: "digital-prescription",
+    title: "A digital prescription for the pharma",
+    date: "May 26, 2017",
+    image: "/home/10-Years.jpg", 
+    content: "Full content for digital prescription blog...",
+    excerpt: "The pharmaceutical industry is undergoing a digital transformation, with new technologies improving efficiency and patient outcomes.",
+  },
+  {
+    slug: "digital-lending",
+    title: "Retail banks wake up to digital lending",
+    date: "May 26, 2017",
+    image: "/home/consultancy.jpg",
+    content: "Full content for digital lending blog...",
+    excerpt: "Retail banks are recognizing the importance of digital lending in enhancing customer experience and streamlining operations.",
+  },
+  {
+    slug: "pro-bono",
+    title: "Seven weeks working ‘pro bono’",
+    date: "January 22, 2016",
+    image: "home/leverage.png",
+    content: "Full content for pro bono blog...",
+    excerpt: "A team of consultants spent seven weeks working pro bono to help a charity improve its operations and better serve its community.",
   },
 ];
