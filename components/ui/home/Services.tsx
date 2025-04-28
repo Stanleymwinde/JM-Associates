@@ -4,6 +4,7 @@ import { Box, Grid, GridItem, Heading, Text, Image } from "@chakra-ui/react";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
 import Loading from "@/components/Loading";
+
 const Services = () => {
   const {
     sectionArray: services,
@@ -19,6 +20,11 @@ const Services = () => {
   if (!services || services.length === 0) {
     return <Text>No services available</Text>;
   }
+
+  // console.log(
+  //   services.map((service) => service.Icon || "No icon available"),
+  //   "services"
+  // );
 
   return (
     <>
