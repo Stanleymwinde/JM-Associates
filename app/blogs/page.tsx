@@ -7,12 +7,13 @@ import {
   GridItem,
   Heading,
   Flex,
+  Icon,
 } from "@chakra-ui/react";
-import Link from "next/link";
 
 
 
-const RecentNews = () => {
+
+const HomeNews = () => {
   return (
     <Box textAlign="center" py={10}>
       <Heading as="h2" fontSize="2xl" fontWeight="bold" mb={2}>
@@ -23,7 +24,7 @@ const RecentNews = () => {
         <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
           {newsArticles.map((article) => (
             <GridItem
-              key={article.slug}
+            
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
@@ -35,28 +36,22 @@ const RecentNews = () => {
                 transition: "all 0.3s",
               }}
             >
-              <Link href={`/news/${article.slug}`} passHref>
-                <Box as="a">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    objectFit="cover"
-                    width="100%"
-                    height="200px"
-                  />
-                  <Box p={4}>
-                    <Text fontSize="sm" color="gray.500">
-                      {article.date}
-                    </Text>
-                    <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>
-                      {article.title}
-                    </Heading>
-                    <Text mt={2}>
-                      {article.excerpt}
-                    </Text>
-                  </Box>
-                </Box>
-              </Link>
+              <Image
+                src={article.image}
+                alt={article.title}
+                objectFit="cover"
+                width="100%"
+                height="200px"
+              />
+              <Box p={4}>
+                <Text fontSize="sm" color="gray.500">
+                  {article.date}
+                </Text>
+                <Heading as="h3" fontSize="lg" fontWeight="semibold" mt={1}>
+                  {article.title}
+                </Heading>
+                <Flex align="center" mt={2}></Flex>
+              </Box>
             </GridItem>
           ))}
         </Grid>
@@ -65,4 +60,4 @@ const RecentNews = () => {
   );
 };
 
-export default RecentNews;
+export default HomeNews;
