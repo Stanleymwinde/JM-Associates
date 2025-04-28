@@ -1,5 +1,4 @@
 "use client";
-import Loading from "@/components/Loading";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
 import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
@@ -11,7 +10,7 @@ const About = () => {
   const { sectionData, error, loading } = useDefaultSectionData("homeabout");
 
   if (loading) {
-    return <Loading />;
+    return <Text>Loading...</Text>;
   }
   if (error) {
     return <Text>Error: {error}</Text>;
