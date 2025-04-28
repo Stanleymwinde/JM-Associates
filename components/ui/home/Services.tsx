@@ -1,55 +1,25 @@
 "use client";
 import React from "react";
-import { Box, Grid, GridItem, Heading, Text, Icon } from "@chakra-ui/react";
-import {
-  FaCalculator,
-  FaChartLine,
-  FaWallet,
-  FaDatabase,
-  FaFileInvoice,
-  FaHandshake,
-} from "react-icons/fa";
+import { Box, Grid, GridItem, Heading, Text, Image } from "@chakra-ui/react";
 import { MarginX } from "@/utils/constants";
-import { AiOutlineAudit } from "react-icons/ai";
-import { GiTakeMyMoney } from "react-icons/gi";
+import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
+import Loading from "@/components/Loading";
 const Services = () => {
-  const services = [
-    {
-      icon: AiOutlineAudit,
-      title: "Accounting",
-      desc: "Our audit services go beyond looking in to the numbers. We endeavor to gain a clear understanding of your business, your goals, the environment, and circumstances in which your business operates.",
-    },
-    {
-      icon: FaChartLine,
-      title: "Taxation",
-      desc: "Tax is one of the most dynamic issues business face today. The need for compliance is at its very high as revenue authorities world over become more vigilant.",
-    },
-    {
-      icon: FaWallet,
-      title: "Forensic Audit",
-      desc: "Even with the best laid internal control systems, fraud-proofing mechanisms cannot completely eliminate the possibilities of a fraud happening. ",
-    },
-    {
-      icon: FaDatabase,
-      title: "Asset and Inventory Management",
-      desc: "Tangible and intangible assets are an invaluable resource in any business. Because of the importance of such assets to the business, the more reason why business must ensure their proper management.",
-    },
-    {
-      icon: FaFileInvoice,
-      title: "Outsourced Accounting Services",
-      desc: "Book keeping and accounting is the backbone of proper financial management. Every business need to have proper books financial records to be able to make informed decision and know how the business is fairing on.",
-    },
-    {
-      icon: FaHandshake,
-      title: "Corporte Finance Services",
-      desc: "Through Corporate Consulting, JM Associates looks at the companies’ operations where we undertake assignments that enable a company to maximize profits and minimize costs.",
-    },
-    {
-      icon: GiTakeMyMoney,
-      title: "Enterprises Risk Management",
-      desc: "We assist clients develop a comprehensive risk management framework that enables them to mitigate business risks.",
-    },
-  ];
+  const {
+    sectionArray: services,
+    error,
+    loading,
+  } = useDefaultSectionArray("homeservices");
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Text>Error: {error}</Text>;
+  }
+  if (!services || services.length === 0) {
+    return <Text>No services available</Text>;
+  }
+
   return (
     <>
       <Box bg="gray.50" py={16}>
@@ -82,7 +52,27 @@ const Services = () => {
                 _hover={{ boxShadow: "xl", cursor: "pointer" }}
                 transition="all 0.3s"
               >
-                <Icon as={service.icon} boxSize={12} color={"red.500"} />
+                {/* <Image
+                  src={`https://cms.jmassociates.co.ke/storage/uploads${services.image.path}`}
+                  alt={service.title}
+                  width={100}
+                  height={100}
+                  objectFit="contain"
+                /> */}
+                {/* <Icon as={service.image} boxSize={12} color={"red.500"} /> */}
+                <Box>
+                  <Image
+                    src={
+                      service.image
+                        ? `https://cms.jmassociates.co.ke/storage/uploads${service.image.path}`
+                        : "/Home/about.jpeg"
+                    }
+                    alt={service.title}
+                    width={100}
+                    height={100}
+                    objectFit="contain"
+                  />
+                </Box>
                 <Heading size="md" mt={3} fontWeight="bold">
                   {service.title}
                 </Heading>

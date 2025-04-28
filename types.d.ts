@@ -7,4 +7,5 @@ interface DefaultSectionInterface {
   image?: Photo;
   start_date?: string;
   end_date?: string;
+  Icon?: string;
 }

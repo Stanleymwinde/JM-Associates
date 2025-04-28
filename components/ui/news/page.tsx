@@ -7,7 +7,6 @@ import {
   GridItem,
   Heading,
   Flex,
-  Icon,
 } from "@chakra-ui/react";
 
 export const newsArticles = [

@@ -5,15 +5,36 @@ import {
   VStack,
   Text,
   Button,
-  HStack,
   Image,
   Heading,
   Flex,
 } from "@chakra-ui/react";
-import { MarginX, ServiceTabs } from "@/utils/constants";
+import { MarginX } from "@/utils/constants";
+import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
+import Loading from "@/components/Loading";
 
 const MainService = () => {
-  const [activeTab, setActiveTab] = useState(ServiceTabs[0]);
+  const {
+    error,
+    loading,
+    sectionArray: serviceData,
+  } = useDefaultSectionArray("services");
+  const [activeTab, setActiveTab] = useState(serviceData[0]);
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Text>Error: {error}</Text>;
+  }
+  if (!serviceData || serviceData.length === 0) {
+    return <Text>No services available</Text>;
+  }
+
+  // console.log title and description of activeTab
+  console.log(
+    `Active Tab Title: ${activeTab.title}, Description: ${activeTab.description}`
+  );
+
   return (
     <Box as="main" mx={{ base: 2, md: MarginX }}>
       {/* Header Section */}
@@ -43,18 +64,18 @@ const MainService = () => {
             gap={2}
             pb={4}
           >
-            {ServiceTabs.map((tab) => (
+            {serviceData.map((tab) => (
               <Button
-                key={tab.name}
+                key={tab.title}
                 variant="ghost"
                 justifyContent="flex-start"
-                bg={activeTab.name === tab.name ? "blue.500" : "transparent"}
-                color={activeTab.name === tab.name ? "white" : "black"}
-                _hover={{ bg: "blue.300", color: "white" }}
+                bg={activeTab.title === tab.title ? "red.500" : "transparent"}
+                color={activeTab.title === tab.title ? "white" : "black"}
+                _hover={{ bg: "blue.300", color: "black" }}
                 onClick={() => setActiveTab(tab)}
-                width="100%" // Make buttons full width for better touch targets on mobile
+                width="100%"
               >
-                {tab.name}
+                {tab.title}
               </Button>
             ))}
           </VStack>
@@ -67,8 +88,8 @@ const MainService = () => {
             maxHeight={{ base: "auto", md: "calc(100vh - 100px)" }}
           >
             <Image
-              src={activeTab.image}
-              alt={activeTab.name}
+              src={`https://cms.jmassociates.com/storage/uploads${activeTab.image.path}`}
+              alt={activeTab.title}
               width="100%"
               height={{ base: "200px", md: "300px" }} // Smaller image on mobile
               objectFit="cover"
@@ -83,14 +104,14 @@ const MainService = () => {
               py={6}
               mb={2}
             >
-              {activeTab.name}
+              {activeTab.title}
             </Heading>
             <Text
               fontSize={{ base: "sm", md: "md" }}
               whiteSpace="pre-line"
               mt={2}
             >
-              {activeTab.content}
+              {activeTab.description}
             </Text>
           </Box>
         </Flex>
