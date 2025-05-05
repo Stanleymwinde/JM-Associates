@@ -54,21 +54,24 @@ const CompanyOverview = () => {
 
         {/* Tabs Section */}
         <Box mt={10}>
-          <Heading
-            fontSize="5xl"
-            py={4}
-            borderBottom="3px solid red"
-            display="inline-block"
-          >
-            COMPANY OVERVIEW
-          </Heading>
+          <Box justifyContent={"center"} textAlign="center" py={5}>
+            <Heading
+              fontSize="5xl"
+              py={4}
+              borderBottom="3px solid red"
+              display="inline-block"
+              textAlign="center"
+            >
+              COMPANY OVERVIEW
+            </Heading>
+          </Box>
 
           <Tabs.Root defaultValue="vision">
             <Tabs.List
               mt={5}
               display="flex"
               gap={5}
-              borderBottom="2px solid gray"
+              borderBottom="0.5px solid gray"
             >
               <Tabs.Trigger value="mission">
                 <Text fontWeight="bold">OUR MISSION</Text>
@@ -86,17 +89,16 @@ const CompanyOverview = () => {
 
             <Tabs.Content value="mission">
               <Text mt={3}>
-                Our mission is to provide high-quality professional services,
-                world-class innovative solutions, and a collaborative culture
-                that enables employees to thrive.
+                To be a brand that delivers quality service to our clients and
+                value to our employees and stakeholders.
               </Text>
             </Tabs.Content>
 
             <Tabs.Content value="vision">
               <Stack mt={3} gap={2}>
                 <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  vitae leo ell rhoncus quam dapibus.
+                  To be the preferred innovative audit and assurance, tax, and
+                  advisory firm in Africa.
                 </Text>
                 <Text>✅ Provide high-quality professional services.</Text>
                 <Text>✅ Offer innovative solutions.</Text>

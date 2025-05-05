@@ -1,25 +1,25 @@
 "use client";
+import Loading from "@/components/Loading";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
 import { Box, Container, Heading, Image, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 
 const CompanyHistory = () => {
+  const { sectionData, error, loading } = useDefaultSectionData("aboutus");
 
-  const {sectionData, error, loading} = useDefaultSectionData("aboutus")
-
-  if (loading){
-    return <Text>Loading ...</Text>
+  if (loading) {
+    return <Loading />;
   }
   if (error) {
-    return <Text> error: {error}</Text>
+    return <Text> error: {error}</Text>;
   }
 
   return (
     <Box py={10} marginX={MarginX}>
       <Box marginX={MarginX}>
         <Image
-           src={
+          src={
             sectionData?.image?.path
               ? `https://cms.jmassociates.co.ke/storage/uploads${sectionData.image.path}`
               : "/about.jpg"
@@ -40,7 +40,7 @@ const CompanyHistory = () => {
           mx={"auto"}
         >
           <Heading as="h2" fontSize="2xl" fontWeight="bold" mb={3}>
-          {sectionData!.title}
+            {sectionData!.title}
             {/* <Divider
             w="50px"
             mx="auto"
@@ -48,9 +48,15 @@ const CompanyHistory = () => {
             borderColor="blue.600"
           /> */}
           </Heading>
-          <Text color="gray.600" fontSize={{ base: "sm", md: "md" }} mb={8}>
-            {sectionData!.description}
-          </Text>
+          <Text
+            color="gray.600"
+            fontSize={{ base: "sm", md: "md" }}
+            mb={8}
+            lineHeight={"1.8rem"}
+            dangerouslySetInnerHTML={{
+              __html: sectionData!.description || "No description available.",
+            }}
+          />
         </Box>
 
         {/* Timeline */}

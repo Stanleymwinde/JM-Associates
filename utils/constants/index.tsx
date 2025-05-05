@@ -2,7 +2,6 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaX } from "react-icons/fa6";
 import { FiPhone } from "react-icons/fi";
 import { TbMailBitcoin } from "react-icons/tb";
-import { text } from "stream/consumers";
 
 export const MarginX = {
   base: "3%",
@@ -306,9 +305,10 @@ export const newsArticles = [
     slug: "digital-prescription",
     title: "A digital prescription for the pharma",
     date: "May 26, 2017",
-    image: "/home/10-Years.jpg", 
+    image: "/home/10-Years.jpg",
     content: "Full content for digital prescription blog...",
-    excerpt: "The pharmaceutical industry is undergoing a digital transformation, with new technologies improving efficiency and patient outcomes.",
+    excerpt:
+      "The pharmaceutical industry is undergoing a digital transformation, with new technologies improving efficiency and patient outcomes.",
   },
   {
     slug: "digital-lending",
@@ -316,7 +316,8 @@ export const newsArticles = [
     date: "May 26, 2017",
     image: "/home/consultancy.jpg",
     content: "Full content for digital lending blog...",
-    excerpt: "Retail banks are recognizing the importance of digital lending in enhancing customer experience and streamlining operations.",
+    excerpt:
+      "Retail banks are recognizing the importance of digital lending in enhancing customer experience and streamlining operations.",
   },
   {
     slug: "pro-bono",
@@ -324,6 +325,7 @@ export const newsArticles = [
     date: "January 22, 2016",
     image: "home/leverage.png",
     content: "Full content for pro bono blog...",
-    excerpt: "A team of consultants spent seven weeks working pro bono to help a charity improve its operations and better serve its community.",
+    excerpt:
+      "A team of consultants spent seven weeks working pro bono to help a charity improve its operations and better serve its community.",
   },
 ];

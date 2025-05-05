@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   VStack,
@@ -19,21 +19,34 @@ const MainService = () => {
     loading,
     sectionArray: serviceData,
   } = useDefaultSectionArray("services");
-  const [activeTab, setActiveTab] = useState(serviceData[0]);
+
+  const [activeTab, setActiveTab] = useState<DefaultSectionInterface | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (serviceData && serviceData.length > 0 && !activeTab) {
+      setActiveTab(serviceData[0]);
+    }
+  }, [serviceData]);
+
   if (loading) {
     return <Loading />;
   }
+
   if (error) {
     return <Text>Error: {error}</Text>;
   }
+
   if (!serviceData || serviceData.length === 0) {
     return <Text>No services available</Text>;
   }
 
-  // console.log title and description of activeTab
-  console.log(
-    `Active Tab Title: ${activeTab.title}, Description: ${activeTab.description}`
-  );
+  if (!activeTab) {
+    return null; // or <Loading /> optionally
+  }
+
+  console.log(activeTab.image, "activeTabImage");
 
   return (
     <Box as="main" mx={{ base: 2, md: MarginX }}>
@@ -85,13 +98,17 @@ const MainService = () => {
             flex={1}
             px={{ base: 4, md: 6 }}
             overflowY="auto"
-            maxHeight={{ base: "auto", md: "calc(100vh - 100px)" }}
+            maxHeight={{ base: "auto", md: "calc(s100vh - 100px)" }}
           >
             <Image
-              src={`https://cms.jmassociates.com/storage/uploads${activeTab.image.path}`}
+              src={
+                activeTab.image
+                  ? `https://cms.jmassociates.co.ke/storage/uploads${activeTab.image.path}`
+                  : "/Home/about.jpeg"
+              }
               alt={activeTab.title}
               width="100%"
-              height={{ base: "200px", md: "300px" }} // Smaller image on mobile
+              height={{ base: "200px", md: "300px" }}
               objectFit="cover"
               mb={4}
               borderRadius="md"
@@ -103,16 +120,20 @@ const MainService = () => {
               textAlign="center"
               py={6}
               mb={2}
-            >
-              {activeTab.title}
-            </Heading>
+            ></Heading>
+            {activeTab.title}
             <Text
               fontSize={{ base: "sm", md: "md" }}
               whiteSpace="pre-line"
               mt={2}
-            >
-              {activeTab.description}
-            </Text>
+              // lineBreak={"anywhere"}
+              lineHeight={
+                { base: "1.5", md: "2" } // Adjust line height for mobile
+              }
+              dangerouslySetInnerHTML={{
+                __html: (activeTab.description ?? "").replace(/\n/g, "<br />"),
+              }} // Convert newlines to <br /> tags
+            />
           </Box>
         </Flex>
       </Box>
