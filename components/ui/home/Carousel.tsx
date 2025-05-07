@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
 
 const slides = [
   {
@@ -34,6 +35,11 @@ const slides = [
 
 const CarouselComponent = () => {
   const router = useRouter();
+  const {
+    error,
+    loading,
+    sectionArray: slides,
+  } = useDefaultSectionArray("carousel");
 
   return (
     <Box width="100%" height="85vh">
@@ -48,7 +54,11 @@ const CarouselComponent = () => {
           <SwiperSlide key={index}>
             <Box position="relative" width="100%" height="75vh">
               <Image
-                src={slide.image}
+                src={
+                  slide.image
+                    ? `https://cms.jmassociates.co.ke/storage/uploads${slide.image.path}`
+                    : "/Home/about.jpeg"
+                }
                 alt={`Slide ${index + 1}`}
                 width="100%"
                 height="100%"
@@ -84,9 +94,9 @@ const CarouselComponent = () => {
                   size="lg"
                   bg={"red.500"}
                   color="white"
-                  onClick={() => router.push(slide.link)}
+                  onClick={() => slide.link && router.push(slide.link)}
                 >
-                  {slide.buttonText}
+                  <Text fontSize={{ base: "md", md: "lg" }}>"See More"</Text>
                 </Button>
               </Box>
             </Box>
