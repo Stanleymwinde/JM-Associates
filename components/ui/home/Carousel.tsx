@@ -8,30 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
-
-const slides = [
-  {
-    image: "/slider/Slide1.jpg",
-    title: "Explore Our Services",
-    description: "Discover the best consulting solutions tailored for you.",
-    buttonText: "Learn More",
-    link: "/services",
-  },
-  {
-    image: "/slider/Slide2.jpg",
-    title: "Innovative Solutions",
-    description: "We provide top-notch financial and audit consulting.",
-    buttonText: "See More",
-    link: "/about-us",
-  },
-  {
-    image: "/slider/Slide3.jpeg",
-    title: "Join Our Team",
-    description: "Become part of a thriving consulting community.",
-    buttonText: "Apply Now",
-    link: "/careers",
-  },
-];
+import Link from "next/link";
+import Loading from "@/components/Loading";
 
 const CarouselComponent = () => {
   const router = useRouter();
@@ -40,6 +18,38 @@ const CarouselComponent = () => {
     loading,
     sectionArray: slides,
   } = useDefaultSectionArray("carousel");
+
+  if (loading) return <Loading />;
+  if (error) {
+    return (
+      <Box
+        width="100%"
+        height="85vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Text fontSize="xl" color="red.500">
+          Error loading carousel: {error}
+        </Text>
+      </Box>
+    );
+  }
+  if (!slides || slides.length === 0) {
+    return (
+      <Box
+        width="100%"
+        height="85vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Text fontSize="xl" color="gray.500">
+          No slides available.
+        </Text>
+      </Box>
+    );
+  }
 
   return (
     <Box width="100%" height="85vh">
@@ -74,7 +84,7 @@ const CarouselComponent = () => {
                 width="95%"
                 maxW="900px"
                 bg="blackAlpha.500"
-                backdropFilter="blur(12px)"
+                // backdropFilter="blur(12px)"
                 borderRadius="lg"
                 p={{ base: 6, md: 16 }}
                 textAlign="center"
@@ -90,14 +100,16 @@ const CarouselComponent = () => {
                 <Text fontSize={{ base: "lg", md: "xl" }} mb={6}>
                   {slide.description}
                 </Text>
-                <Button
-                  size="lg"
-                  bg={"red.500"}
-                  color="white"
-                  onClick={() => slide.link && router.push(slide.link)}
-                >
-                  <Text fontSize={{ base: "md", md: "lg" }}>"See More"</Text>
-                </Button>
+                <Link href={slide.link || "/about-us"} passHref>
+                  <Button
+                    size="lg"
+                    bg={"red.500"}
+                    color="white"
+                    _hover={{ bg: "red.600" }}
+                  >
+                    <Text fontSize={{ base: "md", md: "lg" }}>"See More"</Text>
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </SwiperSlide>

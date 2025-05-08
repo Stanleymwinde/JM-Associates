@@ -115,16 +115,16 @@ const Footer = () => {
             Social
           </Text>
           <HStack gap={3}>
-            <Link href="#">
+            <Link href="https://www.facebook.com/jmassociateske">
               <Icon as={FaFacebookF} boxSize={5} color="blue.500" />
             </Link>
-            <Link href="#">
+            <Link href="https://x.com/JMAssociatesLLP">
               <Icon as={FaXTwitter} boxSize={5} color="white" />
             </Link>
-            <Link href="#">
+            <Link href="https://www.instagram.com/jmassociatesllp">
               <Icon as={FaInstagram} boxSize={5} color="red.500" />
             </Link>
-            <Link href="#">
+            <Link href="https://www.linkedin.com/company/jmassociateske">
               <Icon as={FaLinkedinIn} boxSize={5} color="blue.500" />
             </Link>
           </HStack>

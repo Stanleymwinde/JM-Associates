@@ -8,4 +8,5 @@ interface DefaultSectionInterface {
   start_date?: string;
   end_date?: string;
   Icon?: string;
+  document:{path: string};
 }

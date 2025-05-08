@@ -33,7 +33,7 @@ const CommonHero: React.FC<CommonHeroProps> = ({ title, image }) => {
       />
 
       {/* Title Text */}
-      <Heading
+      {/* <Heading
         position="relative"
         color="white"
         fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
@@ -42,7 +42,7 @@ const CommonHero: React.FC<CommonHeroProps> = ({ title, image }) => {
         textShadow="0 4px 8px rgba(0, 0, 0, 0.7)"
       >
         {title}
-      </Heading>
+      </Heading> */}
     </Box>
   );
 };
