@@ -58,14 +58,6 @@ const Services = () => {
                 _hover={{ boxShadow: "xl", cursor: "pointer" }}
                 transition="all 0.3s"
               >
-                {/* <Image
-                  src={`https://cms.jmassociates.co.ke/storage/uploads${services.image.path}`}
-                  alt={service.title}
-                  width={100}
-                  height={100}
-                  objectFit="contain"
-                /> */}
-                {/* <Icon as={service.image} boxSize={12} color={"red.500"} /> */}
                 <Box>
                   <Image
                     src={
@@ -82,10 +74,16 @@ const Services = () => {
                 <Heading size="md" mt={3} fontWeight="bold">
                   {service.title}
                 </Heading>
-                <Text mt={2} color="gray.600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  aliquet egestas odio eu placerat.
-                </Text>
+                <Text
+                  mt={2}
+                  color="gray.600"
+                  dangerouslySetInnerHTML={{
+                    __html: service
+                      .description!.split(" ")
+                      .slice(0, 20)
+                      .join(" "),
+                  }}
+                />
               </GridItem>
             ))}
           </Grid>

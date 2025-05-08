@@ -94,8 +94,13 @@ const TeamCard = () => {
               pos="relative"
               overflow="hidden"
               borderRadius="md"
+              _hover={{
+                transform: "scale(1.05)",
+                transition: "all .3s ease-in-out",
+                boxShadow: "lg",
+              }}
             >
-              <motion.div
+              {/* <motion.div
                 className="socials"
                 initial={{ opacity: 0, scale: 0.3 }}
                 animate={controls}
@@ -128,7 +133,7 @@ const TeamCard = () => {
                     </Box>
                   ))}
                 </Stack>
-              </motion.div>
+              </motion.div> */}
 
               <Box h="350px" overflow="hidden">
                 <Image

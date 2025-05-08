@@ -81,8 +81,8 @@ const CompanyOverview = () => {
                   OUR VISION
                 </Text>
               </Tabs.Trigger>
-              <Tabs.Trigger value="strategy">
-                <Text fontWeight="bold">OUR STRATEGY</Text>
+              <Tabs.Trigger value="core values">
+                <Text fontWeight="bold">OUR CORE VALUES</Text>
               </Tabs.Trigger>
               <Tabs.Indicator bg="red.500" height="3px" />
             </Tabs.List>
@@ -100,18 +100,14 @@ const CompanyOverview = () => {
                   To be the preferred innovative audit and assurance, tax, and
                   advisory firm in Africa.
                 </Text>
-                <Text>✅ Provide high-quality professional services.</Text>
-                <Text>✅ Offer innovative solutions.</Text>
-                <Text>✅ Recruit and retain the most knowledgeable staff.</Text>
-                <Text>✅ Foster a collaborative culture for growth.</Text>
               </Stack>
             </Tabs.Content>
 
-            <Tabs.Content value="strategy">
+            <Tabs.Content value="core values">
               <Text mt={3}>
-                Our strategy focuses on continuous innovation, ensuring customer
-                satisfaction, and adapting to market changes with agility and
-                precision.
+                To ensure relevance, quality, and effectiveness in each
+                assignment, we have identified and embraced four basic
+                principles to support our service delivery
               </Text>
             </Tabs.Content>
           </Tabs.Root>
