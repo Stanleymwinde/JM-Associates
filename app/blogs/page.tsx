@@ -54,7 +54,7 @@ const HomeNews = () => {
         <Box width="50px" height="2px" bg="red.500" mx="auto" mb={6}></Box>
         <Box marginX={MarginX}>
           <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
-            {newsData.map((article, blg) => (
+            {newsData.slice(0, 3).map((article, blg) => (
               <GridItem
                 key={blg}
                 borderWidth="1px"
@@ -100,17 +100,16 @@ const HomeNews = () => {
           justifyContent="center"
           alignItems="center"
           marginX={MarginX}
-          mb={10}
+          py={10}
         >
-          <Link href="/blogs">
-            <Text fontSize="lg" color="blue.500" textDecoration="underline">
-              View All Insights
-            </Text>
-          </Link>
+          <Heading as="h2" fontSize="2xl" fontWeight="bold" mb={2}>
+            RECENT INSIGHTS
+          </Heading>
+          <Box width="50px" height="2px" bg="red.500" mx="auto" mb={6}></Box>
         </Box>
         <Box marginX={MarginX}>
           <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
-            {insightData.map((insight, blx) => (
+            {insightData.slice(0, 3).map((insight, blx) => (
               <GridItem
                 key={blx}
                 borderWidth="1px"
