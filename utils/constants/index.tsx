@@ -84,10 +84,10 @@ export const contactsData = [
     color: "black",
   },
   {
-    label: "+254 722 123 456",
+    label: "+254 733 818 835",
     title: "Phone Number",
     icon: <FiPhone />,
-    link: `tel:+254722123456`,
+    link: `tel:+254733818835`,
     bg: "red.500",
     color: "black",
   },
