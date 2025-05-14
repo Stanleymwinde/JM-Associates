@@ -37,7 +37,7 @@ const Services = () => {
             position="relative"
             pb={4}
           >
-            OUR SERVICES
+            Our Services
             <Box mt={2} w="50px" h="3px" bg="red.500" mx="auto"></Box>
           </Heading>
           <Text color="gray.600" mt={4} mb={10} fontSize={["md", "lg"]}>
