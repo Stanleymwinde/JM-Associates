@@ -4,6 +4,7 @@ import { Box, Grid, GridItem, Heading, Text, Image } from "@chakra-ui/react";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
 import Loading from "@/components/Loading";
+import Link from "next/link";
 
 const Services = () => {
   const {
@@ -58,32 +59,34 @@ const Services = () => {
                 _hover={{ boxShadow: "xl", cursor: "pointer" }}
                 transition="all 0.3s"
               >
-                <Box>
-                  <Image
-                    src={
-                      service.image
-                        ? `https://cms.jmassociates.co.ke/storage/uploads${service.image.path}`
-                        : "/Home/about.jpeg"
-                    }
-                    alt={service.title}
-                    width={100}
-                    height={100}
-                    objectFit="contain"
+                <Link href={`/services`}>
+                  <Box>
+                    <Image
+                      src={
+                        service.image
+                          ? `https://cms.jmassociates.co.ke/storage/uploads${service.image.path}`
+                          : "/Home/about.jpeg"
+                      }
+                      alt={service.title}
+                      width={100}
+                      height={100}
+                      objectFit="contain"
+                    />
+                  </Box>
+                  <Heading size="md" mt={3} fontWeight="bold">
+                    {service.title}
+                  </Heading>
+                  <Text
+                    mt={2}
+                    color="gray.600"
+                    dangerouslySetInnerHTML={{
+                      __html: service
+                        .description!.split(" ")
+                        .slice(0, 20)
+                        .join(" "),
+                    }}
                   />
-                </Box>
-                <Heading size="md" mt={3} fontWeight="bold">
-                  {service.title}
-                </Heading>
-                <Text
-                  mt={2}
-                  color="gray.600"
-                  dangerouslySetInnerHTML={{
-                    __html: service
-                      .description!.split(" ")
-                      .slice(0, 20)
-                      .join(" "),
-                  }}
-                />
+                </Link>
               </GridItem>
             ))}
           </Grid>

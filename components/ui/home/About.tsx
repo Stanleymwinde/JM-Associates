@@ -58,27 +58,27 @@ const About = () => {
             </Heading>
 
             <Box
-              width="10%"
+              width="75%"
               divideY={"2px"}
               divideColor={"red.500"}
               divideStyle={"solid"}
-              py={2}
+              py={1}
             >
               <Box></Box>
               <Box></Box>
             </Box>
 
-            {/* Second Divider */}
+            {/* Second Divider
             <Box
               pl={5}
-              width="12%"
+              width="100%"
               divideY={"2px"}
               divideColor={"red.500"}
               divideStyle={"solid"}
             >
               <Box></Box>
               <Box></Box>
-            </Box>
+            </Box> */}
 
             <Text
               py={10}
