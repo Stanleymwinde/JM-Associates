@@ -111,8 +111,8 @@ const Footer = () => {
 
         {/* Column 5: Social Media */}
         <VStack align="start" w={["100%", "15%"]}>
-          <Text fontSize="lg" fontWeight="bold">
-            Social
+          <Text fontSize="lg" fontWeight="bold" color={"red.500"}>
+            Follow Us
           </Text>
           <HStack gap={3}>
             <Link href="https://www.facebook.com/jmassociateske">
