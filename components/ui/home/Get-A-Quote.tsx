@@ -67,6 +67,7 @@ export default function GetAQuote() {
         bgRepeat="no-repeat"
         position="relative"
         py={20}
+        id="quote"
       >
         <Box
           position="absolute"

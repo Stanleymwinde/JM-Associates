@@ -43,7 +43,7 @@ export const homectas = [
   {
     icon: <FiPhone />,
     text: "CALL US",
-    desc: "(+254) 722 123 456",
+    desc: "(+254) 733 818 835",
   },
 ];
 

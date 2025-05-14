@@ -38,9 +38,11 @@ const BottomNav = () => {
               ))}
             </Flex>
 
-            <Button bg="white" color="#aa1f30">
-              Get a Quote
-            </Button>
+            <Link href={"/#quote"}>
+              <Button bg="white" color="#aa1f30">
+                Get a Quote
+              </Button>
+            </Link>
           </Flex>
 
           {/* Hamburger Menu - Only Visible on Mobile */}
