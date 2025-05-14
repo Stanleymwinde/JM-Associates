@@ -60,7 +60,7 @@ const CompanyHistory = () => {
         </Box>
 
         {/* Timeline */}
-        <Flex
+        {/* <Flex
           direction={{ base: "column", md: "row" }}
           justify="space-around"
           align="center"
@@ -81,7 +81,7 @@ const CompanyHistory = () => {
               )}
             </Box>
           ))}
-        </Flex>
+        </Flex> */}
       </Container>
     </Box>
   );
