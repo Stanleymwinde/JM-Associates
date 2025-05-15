@@ -25,7 +25,10 @@ export async function POST(request: NextRequest) {
 
 //   //send the email using nodemailer
  const transport = nodemailer.createTransport({
-    service: "gmail",
+    // service: "gmail",
+    host: "smtp.jmassociates.co.ke", // or your mail server's SMTP host
+    port: 465,              // or 587 for TLS
+    secure: true,           // true for port 465, false for port 587
     auth: {
         user: process.env.MY_EMAIL,
         pass: process.env.MY_PASSWORD,
@@ -34,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptions: Mail.Options = {
         from: process.env.MY_EMAIL,
-        to: "stanmwinde@gmail.com",
+        to: "info@jmassociates.co.ke",
         // cc: Email, (uncomment this line if you want to send a copy to the sender)
         subject: `Website Quote Form with ${Company} as the subject`,
         text: `FullName: ${Fullname}  \nMessage: ${Message}`,

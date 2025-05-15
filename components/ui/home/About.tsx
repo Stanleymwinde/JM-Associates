@@ -92,7 +92,7 @@ const About = () => {
             />
           </Box>
 
-          <Link href={"/about"} passHref>
+          <Link href={"/about-us"} passHref>
             <Box
               width="100%"
               _groupHover={{ color: "black", cursor: "pointer" }}

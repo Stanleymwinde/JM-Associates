@@ -17,7 +17,7 @@ const MainNav = () => {
         gap={{ base: 4, md: 6 }}
       >
         {/* Logo */}
-        <Box>
+        <Box display="flex" gap={4} alignItems="center">
           <Link href={"/"}>
             {" "}
             <Image
@@ -27,6 +27,13 @@ const MainNav = () => {
               height={useBreakpointValue({ base: 50, md: 100 })}
             />
           </Link>
+
+          <Image
+            src="/Antea.png"
+            alt="logo"
+            width={useBreakpointValue({ base: 100, md: 100 })}
+            height={useBreakpointValue({ base: 50, md: 500 })}
+          />
         </Box>
 
         {/* CTA Section */}
