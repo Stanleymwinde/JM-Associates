@@ -124,7 +124,7 @@ const Footer = () => {
             <Link href="https://www.instagram.com/jmassociatesllp">
               <Icon as={FaInstagram} boxSize={5} color="red.500" />
             </Link>
-            <Link href="https://www.linkedin.com/company/jmassociateske">
+            <Link href="https://www.linkedin.com/company/jm-associates-ke/">
               <Icon as={FaLinkedinIn} boxSize={5} color="blue.500" />
             </Link>
           </HStack>

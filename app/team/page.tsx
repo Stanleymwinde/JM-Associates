@@ -73,8 +73,8 @@ const TeamCard = () => {
             Meet Our Team
           </Text>
           <Text fontSize="lg" color="gray.600">
-            Our team is a diverse group of professionals with a shared passion
-            for technology and innovation.
+            A diverse team delivering audit, tax, advisory, outsourcing, and
+            corporate finance solutions across Africa and beyond
           </Text>
         </GridItem>
       </Grid>

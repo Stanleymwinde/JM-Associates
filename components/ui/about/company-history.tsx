@@ -49,7 +49,7 @@ const CompanyHistory = () => {
           /> */}
           </Heading>
           <Text
-            color="gray.600"
+            color="red.500"
             fontSize={{ base: "sm", md: "md" }}
             mb={8}
             lineHeight={"1.8rem"}
