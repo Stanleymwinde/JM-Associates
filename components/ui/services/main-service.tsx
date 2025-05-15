@@ -18,7 +18,6 @@ const MainService = () => {
   // get current url parameters
   const searchParams = useSearchParams();
   const serviceId = searchParams.get("tab");
-  console.log(serviceId, "serviceId");
   const {
     error,
     loading,
