@@ -58,7 +58,7 @@ const About = () => {
             </Heading>
 
             <Box
-              width="75%"
+              width="79%"
               divideY={"2px"}
               divideColor={"red.500"}
               divideStyle={"solid"}

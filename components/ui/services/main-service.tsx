@@ -12,8 +12,13 @@ import {
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
 import Loading from "@/components/Loading";
+import { useSearchParams } from "next/navigation";
 
 const MainService = () => {
+  // get current url parameters
+  const searchParams = useSearchParams();
+  const serviceId = searchParams.get("tab");
+  console.log(serviceId, "serviceId");
   const {
     error,
     loading,
@@ -25,10 +30,15 @@ const MainService = () => {
   );
 
   useEffect(() => {
-    if (serviceData && serviceData.length > 0 && !activeTab) {
-      setActiveTab(serviceData[0]);
+    if (serviceData && serviceData.length > 0) {
+      const matchedTab = serviceData.find((tab) => tab._id === serviceId);
+      if (matchedTab) {
+        setActiveTab(matchedTab);
+      } else {
+        setActiveTab(serviceData[0]); // fallback to first tab if no match
+      }
     }
-  }, [serviceData]);
+  }, [serviceData, serviceId]);
 
   if (loading) {
     return <Loading />;
@@ -45,8 +55,6 @@ const MainService = () => {
   if (!activeTab) {
     return null; // or <Loading /> optionally
   }
-
-  console.log(activeTab.image, "activeTabImage");
 
   return (
     <Box as="main" mx={{ base: 2, md: MarginX }}>

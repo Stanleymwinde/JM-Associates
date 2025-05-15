@@ -1,6 +1,14 @@
 "use client";
 import React from "react";
-import { Box, Grid, GridItem, Heading, Text, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Image,
+  Flex,
+} from "@chakra-ui/react";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionArray } from "@/utils/hooks/useDefaultSectionArray";
 import Loading from "@/components/Loading";
@@ -11,7 +19,7 @@ const Services = () => {
     sectionArray: services,
     error,
     loading,
-  } = useDefaultSectionArray("homeservices");
+  } = useDefaultSectionArray("services");
   if (loading) {
     return <Loading />;
   }
@@ -47,7 +55,7 @@ const Services = () => {
             management and corporate finance, we are committed to delivering
             tailored solutions that meet your unique needs.
           </Text>
-          <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={8}>
+          <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={8}>
             {services.map((service, index) => (
               <GridItem
                 key={index}
@@ -59,8 +67,8 @@ const Services = () => {
                 _hover={{ boxShadow: "xl", cursor: "pointer" }}
                 transition="all 0.3s"
               >
-                <Link href={`/services`}>
-                  <Box>
+                <Flex gap={4} flexDirection="row">
+                  <Link href={`/services?tab=${service._id}`}>
                     <Image
                       src={
                         service.image
@@ -68,25 +76,29 @@ const Services = () => {
                           : "/Home/about.jpeg"
                       }
                       alt={service.title}
-                      width={100}
-                      height={100}
-                      objectFit="contain"
+                      width={500}
+                      height={200}
+                      objectFit="cover"
+                      borderRadius="md"
+                      boxShadow="md"
                     />
-                  </Box>
-                  <Heading size="md" mt={3} fontWeight="bold">
-                    {service.title}
-                  </Heading>
-                  <Text
-                    mt={2}
-                    color="gray.600"
-                    dangerouslySetInnerHTML={{
-                      __html: service
-                        .description!.split(" ")
-                        .slice(0, 20)
-                        .join(" "),
-                    }}
-                  />
-                </Link>
+                  </Link>
+                  <Link href={`/services`}>
+                    <Heading size="md" mt={3} fontWeight="bold">
+                      {service.title}
+                    </Heading>
+                    <Text
+                      mt={2}
+                      color="gray.600"
+                      dangerouslySetInnerHTML={{
+                        __html: service
+                          .description!.split(" ")
+                          .slice(0, 20)
+                          .join(" "),
+                      }}
+                    />
+                  </Link>
+                </Flex>
               </GridItem>
             ))}
           </Grid>
