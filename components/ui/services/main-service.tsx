@@ -120,8 +120,13 @@ const MainService = () => {
               textAlign="center"
               py={6}
               mb={2}
-            ></Heading>
-            {activeTab.title}
+              fontFamily={"initial"}
+              fontWeight="bold"
+            >
+              {" "}
+              {activeTab.title}
+            </Heading>
+
             <Text
               fontSize={{ base: "sm", md: "md" }}
               whiteSpace="pre-line"

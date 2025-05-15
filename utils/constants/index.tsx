@@ -62,7 +62,7 @@ export const HomeLinks = [
   },
   {
     link: "/blogs",
-    text: "blogs",
+    text: "Insights",
   },
   {
     link: "/careers",
