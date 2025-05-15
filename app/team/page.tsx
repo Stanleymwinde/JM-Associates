@@ -74,7 +74,7 @@ const TeamCard = () => {
           </Text>
           <Text fontSize="lg" color="gray.600">
             A diverse team delivering audit, tax, advisory, outsourcing, and
-            corporate finance solutions across Africa and beyond
+            corporate finance solutions across Africa and beyond.
           </Text>
         </GridItem>
       </Grid>
