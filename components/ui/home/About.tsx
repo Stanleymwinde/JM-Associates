@@ -2,7 +2,7 @@
 import Loading from "@/components/Loading";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
-import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -53,19 +53,29 @@ const About = () => {
           px={5}
         >
           <Box textAlign="start" width="100%">
-            <Heading size="5xl" fontFamily={"initial"}>
-              {sectionData?.title || "Default Title"} {/* Safe access */}
-            </Heading>
+            <Box textAlign="center">
+              <Heading
+                size="5xl"
+                fontFamily="initial"
+                mx="auto"
+                width="fit-content"
+              >
+                {sectionData?.title || "Default Title"}
+              </Heading>
 
-            <Box
-              width="79%"
-              divideY={"2px"}
-              divideColor={"red.500"}
-              divideStyle={"solid"}
-              py={1}
-            >
-              <Box></Box>
-              <Box></Box>
+              <Box mt={2} mx="auto" width="fit-content">
+                <Box
+                  width="100%"
+                  maxWidth="100%"
+                  divideY="2px"
+                  divideColor="red.500"
+                  divideStyle="solid"
+                  py={1}
+                >
+                  <Box></Box>
+                  <Box></Box>
+                </Box>
+              </Box>
             </Box>
 
             {/* Second Divider
