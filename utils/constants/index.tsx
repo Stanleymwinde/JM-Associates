@@ -23,7 +23,7 @@ export const socialIcons = [
     color: "#c13584",
   },
   {
-    link: "https://www.linkedin.com/company/jmassociateske",
+    link: "https://www.linkedin.com/company/jm-associates-ke/",
     icon: <FaLinkedinIn />,
     color: "linear-gradient(90deg, #0077b5 0%, #0077b5 50%, #0077b5 100%)",
   },

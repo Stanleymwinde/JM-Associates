@@ -2,7 +2,15 @@
 import Loading from "@/components/Loading";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
-import { Box, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -63,19 +71,21 @@ const About = () => {
                 {sectionData?.title || "Default Title"}
               </Heading>
 
-              <Box mt={2} mx="auto" width="fit-content">
+              <Flex justify="center" width="100%">
                 <Box
-                  width="100%"
+                  width="50%" // You can use 'sm', 'md' etc. or 'px' values too
                   maxWidth="100%"
                   divideY="2px"
                   divideColor="red.500"
                   divideStyle="solid"
                   py={1}
+                  display="flex"
+                  flexDirection="column"
                 >
                   <Box></Box>
                   <Box></Box>
                 </Box>
-              </Box>
+              </Flex>
             </Box>
 
             {/* Second Divider

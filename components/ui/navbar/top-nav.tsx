@@ -18,7 +18,7 @@ const TopNav = () => {
       >
         {/* Opening Hours */}
         <Flex flexDirection="row" flexWrap="wrap" justify="center">
-          <Text pr={2} color={"blue.400"} fontWeight={"bold"}>
+          <Text pr={2} color={"red.500"} fontWeight={"bold"}>
             Opening:
           </Text>
           <Text textAlign="center">Mon-Sat 8:00 - 18:00. Sunday CLOSED</Text>
