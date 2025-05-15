@@ -17,7 +17,7 @@ const MainNav = () => {
         gap={{ base: 4, md: 6 }}
       >
         {/* Logo */}
-        <Box display="flex" gap={4} alignItems="bottom">
+        <Box display="flex" gap={4}>
           <Link href={"/"}>
             {" "}
             <Image
@@ -29,12 +29,15 @@ const MainNav = () => {
           </Link>
 
           <Link href={"/"}>
-            <Image
-              src="/Antea.png"
-              alt="logo"
-              width={useBreakpointValue({ base: 100, md: 100 })}
-              height={useBreakpointValue({ base: 50, md: 50 })}
-            />
+            <Box pt={{ base: 0, md: 6 }}>
+              {" "}
+              <Image
+                src="/Antea.png"
+                alt="logo"
+                width={useBreakpointValue({ base: 100, md: 160 })}
+                height={useBreakpointValue({ base: 50, md: 110 })}
+              />
+            </Box>
           </Link>
         </Box>
 
