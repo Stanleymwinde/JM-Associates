@@ -10,4 +10,5 @@ interface DefaultSectionInterface {
   end_date?: string;
   Icon?: string;
   document:{path: string};
+  location?: string;
 }
