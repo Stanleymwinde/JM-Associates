@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
-    to: "stanmwinde@gmail.com",
+    to: "info@jmassociates.co.ke",
     // cc: Email, (uncomment this line if you want to send a copy to the sender)
     // Subject: `Message from ${Fullname} (${Email})`,
     subject: `Website Contact Form with ${Subject} as the subject`,

@@ -7,7 +7,7 @@ const Whatsapp = () => {
   return (
     <Box as="section">
       <FloatingWhatsApp
-        phoneNumber="254703600900"
+        phoneNumber="254716818835"
         accountName="JM Associates"
         allowClickAway={true}
         avatar="https://jm-associates.vercel.app/_next/image?url=%2FLogo.png&w=640&q=75"
