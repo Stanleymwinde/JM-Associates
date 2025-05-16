@@ -22,7 +22,7 @@ unoptimized: true,
       hostname: "jmassociates.co.ke",
     }],
   },
-  output: 'export',
+
   
 
  
