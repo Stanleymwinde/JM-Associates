@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   },
   images: {
     dangerouslyAllowSVG: true,
+unoptimized: true,
+  
+
   remotePatterns: [
     {
       protocol: "https",
@@ -19,6 +22,7 @@ const nextConfig: NextConfig = {
       hostname: "jmassociates.co.ke",
     }],
   },
+  output: 'export',
   
 
  
