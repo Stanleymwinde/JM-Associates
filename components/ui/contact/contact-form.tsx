@@ -41,6 +41,7 @@ const ContactForm = () => {
           description: "Your message has been sent successfully.",
           type: "success",
         });
+        alert("Message sent successfully!");
         reset();
       }
     } catch (error) {
