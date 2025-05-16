@@ -23,12 +23,16 @@ export async function POST(request: NextRequest) {
 
  
   const transport = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASSWORD,
-    },
-  });
+    
+      host: "jmassociates.co.ke",
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.MY_EMAIL,
+        pass: process.env.MY_PASSWORD,
+      },
+    });
+
 
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,

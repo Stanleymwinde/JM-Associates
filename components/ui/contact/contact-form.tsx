@@ -34,7 +34,7 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("Response:", response.data);
+
       if (response.data.status === "success") {
         toaster.create({
           title: "Success",

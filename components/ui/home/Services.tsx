@@ -83,7 +83,7 @@ const Services = () => {
                       boxShadow="md"
                     />
                   </Link>
-                  <Link href={`/services`}>
+                  <Link href={`/services?tab=${service._id}`}>
                     <Heading size="md" mt={3} fontWeight="bold">
                       {service.title}
                     </Heading>

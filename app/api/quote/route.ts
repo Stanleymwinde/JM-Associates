@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Configure the mail transport
     const transport = nodemailer.createTransport({
-      host: "smtp.jmassociates.co.ke",
+      host: "jmassociates.co.ke",
       port: 465,
       secure: true,
       auth: {

@@ -2,7 +2,7 @@
 import Loading from "@/components/Loading";
 import { MarginX } from "@/utils/constants";
 import { useDefaultSectionData } from "@/utils/hooks/useDefaultSectionData";
-import { Box, Container, Heading, Image, Text, Flex } from "@chakra-ui/react";
+import { Box, Container, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 const CompanyHistory = () => {
@@ -58,30 +58,6 @@ const CompanyHistory = () => {
             }}
           />
         </Box>
-
-        {/* Timeline */}
-        {/* <Flex
-          direction={{ base: "column", md: "row" }}
-          justify="space-around"
-          align="center"
-        >
-          {[
-            { year: "1988", event: "JM Associates was founded" },
-            { year: "2000", event: "Listed on the Stock Market" },
-            { year: "2010", event: "New CEO JM-Associates" },
-            { year: "Today", event: "Reached 1K +  Clients" },
-          ].map((item, index) => (
-            <Box key={index} textAlign="center">
-              <Heading fontSize="lg" fontWeight="bold">
-                {item.year}
-              </Heading>
-              <Text color="gray.500">{item.event}</Text>
-              {index !== 3 && (
-                <Box w="50px" h="4px" bg="gray.300" mx="auto" my={4} />
-              )}
-            </Box>
-          ))}
-        </Flex> */}
       </Container>
     </Box>
   );
